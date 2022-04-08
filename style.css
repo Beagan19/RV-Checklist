@@ -4,65 +4,63 @@ h1 {
 }
 
 /*
-
 .checkbox {
-  appearance: none;
-  background-color: #fff;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid currentColor;
-  border-radius: 0.15em;
-  transform: translateY(-0.075em);
-  display: grid;
-  place-content: center;
-}
-
-input[type="checkbox"]::before {
-  content: "";
-  width: 0.65em;
-  height: 0.65em;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--form-control-color);
-  transform-origin: bottom left;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-}
-
-input[type="checkbox"]:checked::before {
-  transform: scale(1);
-}
-
-input[type="checkbox"]:focus {
-  outline: max(2px, 0.15em) solid currentColor;
-  outline-offset: max(2px, 0.15em);
-}
-
-
-.checklist-label {
+  position: relative;
   display: inline;
-  font-size: .82rem;
-  line-height: 1.5;
-  margin-left: 5px;
 }
-
-.reset-button {
-  -webkit-border-radius: 3;
- -moz-border-radius: 3;
- border-radius: 3px;
- font-family: Arial;
- color: #ffffff;
- font-size: 13px;
- background: #3498db;
- padding: 5px 13px 5px 13px;
- text-decoration: none;
- margin-left: 20px;
- margin-top: 15px;
+.checklist-label {
+  position: relative;
+  display: inline;
+  font-weight: 800;
 }
 
 */
+
+.checklist-item {
+  position: relative;
+  display: inline;
+}
+
+:root {
+  --form-control-color: rgb(45, 203, 58);
+  --form-control-disabled: #959495;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1;
+}
+
+form {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.form-control {
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+
+.form-control + .form-control {
+  margin-top: 1em;
+}
+
+.form-control--disabled {
+  color: var(--form-control-disabled);
+  cursor: not-allowed;
+}
+
 
 
 input[type="checkbox"] {
@@ -74,7 +72,6 @@ input[type="checkbox"] {
   background-color: var(--form-background);
   /* Not removed via appearance */
   margin: 0;
-
   font: inherit;
   color: currentColor;
   width: 1.15em;
@@ -82,7 +79,6 @@ input[type="checkbox"] {
   border: 0.15em solid currentColor;
   border-radius: 0.15em;
   transform: translateY(-0.075em);
-
   display: grid;
   place-content: center;
 }
@@ -104,10 +100,12 @@ input[type="checkbox"]:checked::before {
   transform: scale(1);
 }
 
+/*
 input[type="checkbox"]:focus {
   outline: max(2px, 0.15em) solid currentColor;
   outline-offset: max(2px, 0.15em);
 }
+*/
 
 input[type="checkbox"]:disabled {
   --form-control-color: var(--form-control-disabled);
